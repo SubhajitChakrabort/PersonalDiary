@@ -136,12 +136,27 @@ async function render() {
     cell.style.backgroundColor = isHoliday ? '#fee2e2' : (isWeekend ? '#fef3c7' : '#ffffff');
     if (isToday(dateObj)) cell.classList.add('ring-2', 'ring-emerald-400');
 
+    // Mobile: show short weekday for all days; Desktop: show full name for weekends only
+    const isSmUp = window.matchMedia('(min-width: 640px)').matches;
+    const shortNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const fullNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    let label = '';
+    if (isHoliday) {
+      label = 'Holiday';
+    } else if (!isSmUp) {
+      // mobile: always show short day name
+      label = shortNames[weekday];
+    } else if (isWeekend) {
+      // md+: only show for weekends
+      label = fullNames[weekday];
+    }
+
     cell.innerHTML = `
       <div class="flex items-center justify-between">
         <span class="text-sm font-semibold">${d}</span>
         ${hasEntry ? '<span class="inline-block w-2 h-2 rounded-full bg-blue-600"></span>' : ''}
       </div>
-      <div class="mt-2 text-xs text-gray-600">${isHoliday ? 'Holiday' : isWeekend ? (weekday===0?'Sunday':'Saturday') : ''}</div>
+      <div class="mt-2 text-xs text-gray-600">${label}</div>
     `;
 
     cell.addEventListener('click', async () => {
@@ -171,7 +186,7 @@ const entryModalTitle = document.getElementById('entryModalTitle');
 
 function openCreateModal(dateStr) {
   entryId.value = '';
-  entryModalTitle.textContent = 'New Entry';
+  entryModalTitle.textContent = 'Add New';
   entryDate.value = dateStr;
   entryTitle.value = '';
   entryContent.value = '';

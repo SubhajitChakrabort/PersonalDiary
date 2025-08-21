@@ -31,13 +31,34 @@
     </header>
 
     <section class="grid grid-cols-7 gap-2 text-center mb-2 text-xs md:text-sm font-medium text-gray-600">
-      <div>Sun</div>
-      <div>Mon</div>
-      <div>Tue</div>
-      <div>Wed</div>
-      <div>Thu</div>
-      <div>Fri</div>
-      <div>Sat</div>
+      <div>
+        <span class="sm:hidden">Sun</span>
+        <span class="hidden sm:inline">Sunday</span>
+      </div>
+      <div>
+        <span class="sm:hidden">Mon</span>
+        <span class="hidden sm:inline">Monday</span>
+      </div>
+      <div>
+        <span class="sm:hidden">Tue</span>
+        <span class="hidden sm:inline">Tuesday</span>
+      </div>
+      <div>
+        <span class="sm:hidden">Wed</span>
+        <span class="hidden sm:inline">Wednesday</span>
+      </div>
+      <div>
+        <span class="sm:hidden">Thu</span>
+        <span class="hidden sm:inline">Thursday</span>
+      </div>
+      <div>
+        <span class="sm:hidden">Fri</span>
+        <span class="hidden sm:inline">Friday</span>
+      </div>
+      <div>
+        <span class="sm:hidden">Sat</span>
+        <span class="hidden sm:inline">Saturday</span>
+      </div>
     </section>
 
     <section id="calendar" class="grid grid-cols-7 gap-2"></section>
@@ -48,10 +69,10 @@
   </div>
 
   <!-- Create/Edit Modal -->
-  <div id="entryModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
-    <div class="bg-white rounded-lg shadow-xl w-full max-w-xl">
+  <div id="entryModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-xl max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between p-4 border-b">
-        <h3 id="entryModalTitle" class="text-lg font-semibold">New Entry</h3>
+        <h3 id="entryModalTitle" class="text-lg font-semibold">Add New </h3>
         <button class="p-2" onclick="closeEntryModal()">✕</button>
       </div>
       <form id="entryForm" class="p-4 space-y-3">
@@ -81,7 +102,7 @@
         </div>
         <div>
           <label class="block text-sm mb-1">Content</label>
-          <textarea id="entryContent" rows="6" class="w-full border rounded px-3 py-2" placeholder="Write your thoughts..." required></textarea>
+          <textarea id="entryContent" rows="5" class="w-full border rounded px-3 py-2" placeholder="Write your thoughts..." required></textarea>
         </div>
         <div class="flex items-center justify-end gap-2 pt-2">
           <button type="button" class="px-4 py-2 bg-gray-100 rounded" onclick="closeEntryModal()">Cancel</button>
@@ -92,7 +113,7 @@
   </div>
 
   <!-- Month Entries Modal -->
-  <div id="monthEntriesModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
+  <div id="monthEntriesModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4">
     <div class="bg-white rounded-lg shadow-xl w-full max-w-3xl max-h-[80vh] overflow-y-auto">
       <div class="flex items-center justify-between p-4 border-b">
         <h3 class="text-lg font-semibold">This Month's Entries</h3>
@@ -103,8 +124,8 @@
   </div>
 
   <!-- View Modal -->
-  <div id="viewModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
-    <div class="bg-white rounded-lg shadow-xl w-full max-w-xl">
+  <div id="viewModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-xl max-h-[85vh] overflow-y-auto">
       <div class="flex items-center justify-between p-4 border-b">
         <h3 id="viewTitle" class="text-lg font-semibold">Diary Entry</h3>
         <button class="p-2" onclick="closeViewModal()">✕</button>
