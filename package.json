@@ -1,0 +1,21 @@
+{
+  "name": "personal-diary",
+  "version": "1.0.0",
+  "description": "Personal Diary app with calendar, Tailwind UI, Express, and MongoDB",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["diary", "express", "mongodb", "tailwind", "calendar"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "mongoose": "^8.6.1"
+  }
+}
